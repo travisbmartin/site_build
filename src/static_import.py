@@ -1,8 +1,8 @@
 import os
 import shutil
 
-pub_path = '/home/trav/site_build/public'
-stat_path = '/home/trav/site_build/static'
+pub_path = './docs'
+stat_path = './static'
 
 if os.path.exists(pub_path):
     shutil.rmtree(pub_path)
@@ -11,7 +11,8 @@ os.makedirs(pub_path)
 
 if not os.path.exists(stat_path):
     print(f"Source path '{stat_path}' does not exist!")
-    exit(1)
+    os.makedirs(stat_path)
+
 
 def pub_copy(src_path, dest_path):
     items = os.listdir(src_path)
